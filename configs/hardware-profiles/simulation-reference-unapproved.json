@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "name": "仿真参数参考（未批准真机）",
+  "status": "reference_only",
+  "activation_permitted": false,
+  "source": {
+    "type": "simulation",
+    "description": "用于展示多配置选择和仿真参数对照，不构成真机安全审批。"
+  },
+  "hardware_approval": {}
+}
