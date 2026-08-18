@@ -1,0 +1,51 @@
+# Custom deterministic B2 stair test designed on 2026-08-12.
+# It sits between the existing 12 cm and 18 cm baselines and adds a persistent
+# 15-degree diagonal approach in a corridor narrower than the 7 m stress suite.
+
+defaults:
+  physics_dt: 0.005
+  policy_dt: 0.02
+  warmup_s: 1.0
+  policy_hold_s: 0.5
+  duration_s: 14.0
+  roi_exit_grace_s: 0.20
+  base_height_m: 0.58
+  nominal_speed: 0.25
+  initial_yaw_deg: 15.0
+  target_heading_deg: 15.0
+  hold: false
+  fall:
+    min_base_clearance_m: 0.25
+    min_upright_cosine: 0.35
+    grace_s: 0.20
+
+replicates:
+  center:
+    lateral_offset_m: 0.0
+    yaw_offset_deg: 0.0
+    target_heading_offset_deg: 0.0
+    joint_offset_seed: null
+
+heading_cases:
+  heading_000:
+    heading_offset_deg: 0.0
+
+scenarios:
+  stairs_up_15cm_oblique_15deg:
+    video_group: stairs_up_15cm_oblique_15deg
+    terrain:
+      type: stairs
+      direction: ascent
+      riser_m: 0.15
+      tread_m: 0.32
+      steps: 6
+      approach_m: 1.25
+      finish_m: 1.40
+      width_m: 3.20
+      friction: 0.80
+    success:
+      min_progress_m: 2.40
+      require_course_complete: true
+      max_final_heading_error_rad: 0.20
+      max_mean_abs_heading_error_rad: 0.15
+      max_abs_cross_track_error_m: 0.30

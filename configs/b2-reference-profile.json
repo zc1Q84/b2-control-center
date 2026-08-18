@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "status": "reference_only",
+  "activation_permitted": false,
+  "robot": {
+    "model": "Unitree B2",
+    "dds_domain": 0,
+    "low_state_topic": "rt/lowstate",
+    "low_cmd_topic": "rt/lowcmd",
+    "joint_order": [
+      "FR_hip", "FR_thigh", "FR_calf",
+      "FL_hip", "FL_thigh", "FL_calf",
+      "RR_hip", "RR_thigh", "RR_calf",
+      "RL_hip", "RL_thigh", "RL_calf"
+    ]
+  },
+  "policy": {
+    "frequency_hz": 50,
+    "training_kp": [160, 160, 160, 160, 160, 160, 160, 160, 160, 160, 160, 160],
+    "training_kd": [5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5],
+    "action_scale_rad": [0.125, 0.25, 0.25, 0.125, 0.25, 0.25, 0.125, 0.25, 0.25, 0.125, 0.25, 0.25],
+    "model_joint_min_rad": [-0.87, -0.94, -2.82, -0.87, -0.94, -2.82, -0.87, -0.94, -2.82, -0.87, -0.94, -2.82],
+    "model_joint_max_rad": [0.87, 4.69, -0.43, 0.87, 4.69, -0.43, 0.87, 4.69, -0.43, 0.87, 4.69, -0.43],
+    "training_velocity_limit_rad_s": [23, 23, 14, 23, 23, 14, 23, 23, 14, 23, 23, 14],
+    "training_effort_limit": [200, 200, 320, 200, 200, 320, 200, 200, 320, 200, 200, 320],
+    "forward_speed_range_m_s": [0.25, 1.0]
+  },
+  "vendor_example_reference": {
+    "low_command_period_s": 0.002,
+    "motor_mode": 10,
+    "stand_kp": 1000,
+    "stand_kd": 10,
+    "usable_as_policy_hardware_defaults": false
+  },
+  "observed_native_control": {
+    "form": "0",
+    "mode": "ai",
+    "service": "ai_sport",
+    "native_damping_chord": "L2+B",
+    "planned_custom_recovery_button": "B"
+  },
+  "engineering_review_candidates": {
+    "position_kp": {
+      "value": [160, 160, 160, 160, 160, 160, 160, 160, 160, 160, 160, 160],
+      "basis": "supplied policy training configuration",
+      "approved_for_hardware": false
+    },
+    "velocity_kd": {
+      "value": [5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5],
+      "basis": "supplied policy training configuration",
+      "approved_for_hardware": false
+    },
+    "joint_velocity_ceiling_rad_s": {
+      "value": [23, 23, 14, 23, 23, 14, 23, 23, 14, 23, 23, 14],
+      "basis": "official B2 URDF model limit",
+      "usable_as_target_slew": false
+    },
+    "joint_effort_ceiling": {
+      "value": [200, 200, 320, 200, 200, 320, 200, 200, 320, 200, 200, 320],
+      "basis": "official B2 URDF model limit",
+      "usable_as_runtime_torque_limit": false
+    },
+    "low_command_period_s": {
+      "value": 0.002,
+      "basis": "official B2 scripted stand example",
+      "usable_as_watchdog_timeout": false
+    }
+  },
+  "hardware_approval": {
+    "position_kp": null,
+    "velocity_kd": null,
+    "gain_ramp_s": null,
+    "damping_kd": null,
+    "target_slew_rad_s": null,
+    "soft_limit_margin_rad": null,
+    "torque_limit": null,
+    "current_limit": null,
+    "joint_velocity_trip_rad_s": null,
+    "tracking_error_trip_rad": null,
+    "tracking_error_duration_s": null,
+    "motor_temperature_trip_c": null,
+    "motor_temperature_reset_c": null,
+    "battery_soc_min_percent": null,
+    "battery_current_abs_limit_raw": null,
+    "battery_temperature_trip_c": null,
+    "battery_temperature_reset_c": null,
+    "tilt_trip_rad": null,
+    "angular_rate_trip_rad_s": null,
+    "state_timeout_s": null,
+    "policy_timeout_s": null,
+    "command_timeout_s": null,
+    "publisher_timeout_s": null,
+    "recovery_timeout_s": null,
+    "lowcmd_conflict_check_s": null,
+    "fault_debounce_s": null,
+    "policy_sha256": null,
+    "robot_serial": null,
+    "firmware_version": null,
+    "reviewer": null,
+    "reviewed_at": null
+  },
+  "sources": {
+    "unitree_sdk2_commit": "21d0a3b2c46ee48c8fdf2783becb6be3beb0a59b",
+    "unitree_mujoco_commit": "ae6a8403e272733e9996ef59990880330496177f",
+    "policy_actor_sha256": "688bdbc4897c6dd9cc1cce54249131a35e9206614cfad2f383d2e907978b67eb",
+    "unitree_ros_b2_urdf": "https://github.com/unitreerobotics/unitree_ros/blob/master/robots/b2_description/urdf/b2_description.urdf"
+  }
+}
