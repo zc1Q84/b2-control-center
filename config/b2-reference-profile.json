@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "status": "hardware_hold_candidate_pending_validation",
+  "activation_permitted": false,
+  "safety_limits": {
+    "q_min": [
+      -0.87,
+      -0.94,
+      -2.82,
+      -0.87,
+      -0.94,
+      -2.82,
+      -0.87,
+      -0.94,
+      -2.82,
+      -0.87,
+      -0.94,
+      -2.82
+    ],
+    "q_max": [
+      0.87,
+      4.69,
+      -0.43,
+      0.87,
+      4.69,
+      -0.43,
+      0.87,
+      4.69,
+      -0.43,
+      0.87,
+      4.69,
+      -0.43
+    ],
+    "dq_max": [
+      23.0,
+      23.0,
+      14.0,
+      23.0,
+      23.0,
+      14.0,
+      23.0,
+      23.0,
+      14.0,
+      23.0,
+      23.0,
+      14.0
+    ],
+    "max_angle_step_rad": [
+      0.046,
+      0.046,
+      0.028,
+      0.046,
+      0.046,
+      0.028,
+      0.046,
+      0.046,
+      0.028,
+      0.046,
+      0.046,
+      0.028
+    ]
+  },
+  "fallback_params": {
+    "damping_kp": 0.0,
+    "damping_kd": 5.0,
+    "approved_for_hardware": false
+  },
+  "hardware_gains": {
+    "kp": [
+      160.0,
+      160.0,
+      160.0,
+      160.0,
+      160.0,
+      160.0,
+      160.0,
+      160.0,
+      160.0,
+      160.0,
+      160.0,
+      160.0
+    ],
+    "kd": [
+      5.0,
+      5.0,
+      5.0,
+      5.0,
+      5.0,
+      5.0,
+      5.0,
+      5.0,
+      5.0,
+      5.0,
+      5.0,
+      5.0
+    ],
+    "approved_for_hardware": false
+  },
+  "review": {
+    "reviewer": null,
+    "reviewed_at": null,
+    "notes": "Kp=160/Kd=5 restored for the requested hardware comparison. Kp=240/Kd=6 passed a learned-hold hardware check and produced visible joint dynamics during a bounded walk command, but displacement still requires visual confirmation. Official B2 stand Kp=1000/Kd=10 was unstable with this policy in MuJoCo and is rejected."
+  }
+}
