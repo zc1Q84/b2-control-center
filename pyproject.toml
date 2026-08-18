@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "b2-control-stack"
+version = "0.1.0"
+description = "Offline-first control development stack for a bare Unitree B2"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "numpy>=1.26,<3",
+  "onnxruntime>=1.17,<2",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pip-tools==7.5.0",
+  "pytest==8.4.1",
+  "pytest-cov==6.2.1",
+]
+
+[project.scripts]
+b2-verify-bundle = "b2_control.cli_verify:main"
+b2-sim-policy = "b2_control.cli_sim_policy:main"
+b2-policy-teleop = "b2_control.cli_sim_policy:main"
+b2-policy-ui = "b2_control.cli_sim_policy:gui_main"
+b2-control-center = "b2_control.cli_control_center:main"
+b2-hw-dryrun = "b2_control.cli_hw_dryrun:main"
+b2-check-parameters = "b2_control.cli_check_parameters:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-ra --strict-markers"
+testpaths = ["tests"]
+markers = [
+  "integration: requires the real policy bundle",
+]

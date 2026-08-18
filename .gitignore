@@ -1,0 +1,21 @@
+.worktrees/
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+build/
+dist/
+*.egg-info/
+var/
+.superpowers/
+# Generated test/session artifacts and local hardware state
+logs/
+logs.zip
+*.mp4
+*.recording.mp4
+*.csv
+*.jsonl
+config/local-*.json
+configs/hardware-profiles/operator-*.json
